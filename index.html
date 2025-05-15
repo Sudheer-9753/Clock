@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .class_container{
+            text-align: center;
+            font-size: 48px;
+            border: 2px solid white;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.1);
+        }
+        .class_Date{
+            font-size: 20px;
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.1);
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="class_container">
+        <h1>00:00:00</h1>
+    </div>
+    <div class="class_Date">
+        <h2>00:00:0000</h2>
+    </div>
+    <audio src="slow-cinematic-clock-ticking-tension-2-323078.mp3" preload="auto"></audio>
+
+   <script>
+    
+    setInterval(() => {
+         const element = document.querySelector(".class_container h1");
+         const element2 = document.querySelector(".class_Date h2");
+         const sound = document.querySelector('audio');
+
+    const time = new Date();
+    const date = new Date();
+
+    const option = {
+         timeZone : "Asia/kolkata",
+        hour:'2-digit',
+        minute:'2-digit',
+        second:'2-digit'
+    }
+
+    const option2 = {
+            day: "2-digit",
+             month: "2-digit",
+            year: "numeric"
+
+    }
+    element.textContent = time.toLocaleTimeString("en-US",option);
+    sound.play();
+    element2.textContent=date.toLocaleDateString('en-Us',option2);
+     
+
+    }, 1000);
+   
+
+   </script>
+</body>
+</html>
